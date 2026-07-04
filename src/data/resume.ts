@@ -36,11 +36,21 @@ export interface ResumeContent {
   education: Education[]
   labels: {
     copyEmail: string
+    copyPhone: string
     copied: string
     present: string
     contents: string
     expandAll: string
     collapseAll: string
+    viewRepo: string
+    switchToLight: string
+    switchToDark: string
+    call: string
+    sendEmail: string
+    expandSidebar: string
+    collapseSidebar: string
+    expandSection: string
+    collapseSection: string
   }
 }
 
@@ -135,11 +145,21 @@ export const content: Record<Lang, ResumeContent> = {
     ],
     labels: {
       copyEmail: 'Copy email',
+      copyPhone: 'Copy phone',
       copied: 'Copied!',
       present: 'Present',
       contents: 'Contents',
       expandAll: 'Expand all',
       collapseAll: 'Collapse all',
+      viewRepo: 'View source repository',
+      switchToLight: 'Switch to light mode',
+      switchToDark: 'Switch to dark mode',
+      call: 'Call',
+      sendEmail: 'Send email',
+      expandSidebar: 'Expand sidebar',
+      collapseSidebar: 'Collapse sidebar',
+      expandSection: 'Expand section',
+      collapseSection: 'Collapse section',
     },
   },
   pt: {
@@ -223,11 +243,21 @@ export const content: Record<Lang, ResumeContent> = {
     ],
     labels: {
       copyEmail: 'Copiar e-mail',
+      copyPhone: 'Copiar telefone',
       copied: 'Copiado!',
       present: 'Presente',
       contents: 'Índice',
       expandAll: 'Expandir tudo',
       collapseAll: 'Recolher tudo',
+      viewRepo: 'Ver repositório fonte',
+      switchToLight: 'Mudar para modo claro',
+      switchToDark: 'Mudar para modo escuro',
+      call: 'Ligar',
+      sendEmail: 'Enviar e-mail',
+      expandSidebar: 'Expandir barra lateral',
+      collapseSidebar: 'Recolher barra lateral',
+      expandSection: 'Expandir seção',
+      collapseSection: 'Recolher seção',
     },
   },
 }

@@ -7,7 +7,7 @@ type Kind = 'plain' | 'keyword' | 'string' | 'comment' | 'tag' | 'number'
 
 const CLASSES: Record<Kind, string> = {
   plain: 'text-slate-500 dark:text-slate-400',
-  keyword: 'text-blue-500 dark:text-sky-400',
+  keyword: 'text-teal-500 dark:text-teal-400',
   string: 'text-emerald-600 dark:text-emerald-400',
   comment: 'text-slate-400 italic dark:text-slate-600',
   tag: 'text-fuchsia-500 dark:text-fuchsia-400',
@@ -57,9 +57,10 @@ const tokens = computed<{ text: string; kind: Kind }[]>(() => {
     aria-hidden="true"
     class="no-print pointer-events-none fixed inset-0 z-0 select-none overflow-hidden"
   >
-    <!-- code texture: crisp on the open page, blurred where the acrylic card sits on top of it -->
+    <!-- code texture: constrained to the content column's width, crisp on the open page,
+         blurred where the acrylic card sits on top of it -->
     <pre
-      class="w-full whitespace-pre-wrap break-all p-4 font-mono text-[11px] leading-[1.35] opacity-[0.09] sm:text-xs dark:opacity-[0.13]"
+      class="mx-auto max-w-5xl whitespace-pre-wrap break-all p-8 font-mono text-[11px] leading-[1.35] opacity-[0.14] sm:p-12 sm:text-xs dark:opacity-[0.18]"
     ><span
         v-for="(tok, i) in tokens"
         :key="i"

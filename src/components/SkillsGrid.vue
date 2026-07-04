@@ -9,7 +9,7 @@ defineProps<{ groups: SkillGroup[] }>()
     <div
       v-for="group in groups"
       :key="group.label"
-      class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition-shadow hover:shadow-md dark:border-slate-700 dark:bg-slate-900"
+      class="rounded-xl border border-slate-200 bg-white/70 p-4 shadow-sm backdrop-blur-sm transition-shadow hover:shadow-md dark:border-slate-700 dark:bg-slate-900/60"
     >
       <h3 class="mb-3 font-mono text-sm font-bold text-slate-800 dark:text-slate-100">
         {{ group.label }}
@@ -18,7 +18,7 @@ defineProps<{ groups: SkillGroup[] }>()
         <li
           v-for="item in group.items"
           :key="item"
-          class="rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-800 transition-colors hover:bg-blue-100 dark:bg-slate-800 dark:text-sky-300 dark:hover:bg-slate-700"
+          class="rounded-md bg-teal-50 px-2 py-1 text-xs font-medium text-teal-800 transition-colors hover:bg-teal-100 dark:bg-slate-800 dark:text-teal-300 dark:hover:bg-slate-700"
         >
           {{ item }}
         </li>
