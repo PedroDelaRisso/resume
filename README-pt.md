@@ -4,7 +4,7 @@
 
 Currículo em formato de página web, bilíngue (PT-BR/EN), construído com Vue 3, TypeScript e Tailwind CSS.
 
-**Live:** https://pedrodelarisso.github.io/resume/
+**Live:** https://pedrodelarisso.github.io/resume/pt
 
 ## Features
 
