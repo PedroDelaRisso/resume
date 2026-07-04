@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 // The site's own source, rendered as a faint backdrop.
-import appSource from '../App.vue?raw'
+import appSource from '../views/ResumeView.vue?raw'
 
 type Kind = 'plain' | 'keyword' | 'string' | 'comment' | 'tag' | 'number'
 
