@@ -4,7 +4,7 @@
 
 A resume built as a web page, bilingual (PT-BR/EN), made with Vue 3, TypeScript, and Tailwind CSS.
 
-**Live:** https://pedrodelarisso.github.io/resume/
+**Live:** https://pedrodelarisso.github.io/resume/en
 
 ## Features
 
