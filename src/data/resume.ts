@@ -5,10 +5,15 @@ export interface SkillGroup {
   items: string[]
 }
 
+export interface RoleStage {
+  title: string
+  period: string
+}
+
 export interface Experience {
-  role: string
   company: string
   period: string
+  roles: RoleStage[]
   highlights: { title: string; text: string }[]
 }
 
@@ -76,17 +81,25 @@ export const content: Record<Lang, ResumeContent> = {
     experienceHeading: 'Professional Experience',
     experience: [
       {
-        role: 'Full Stack Web Developer',
-        company: 'Avs LTDA (formerly Viana & CIA)',
+        company: 'Grupo SOITIC',
         period: '2021 – Present',
+        roles: [
+          { title: 'Programming Intern', period: 'Aug 2021 – Sep 2021' },
+          { title: 'Entry-level Fullstack Developer', period: 'Sep 2021 – Jan 2023' },
+          { title: 'Fullstack Developer', period: 'Jan 2023 – Present' },
+        ],
         highlights: [
           {
             title: 'Development team',
             text: 'responsible for diverse enterprise-level SaaS solutions, focusing on the transition from legacy systems to modern .NET/Vue.js stacks.',
           },
           {
-            title: 'Engineered robust Web APIs',
+            title: 'Engineered robust RESTful Web APIs',
             text: 'using .NET, implementing Entity Framework for complex data modeling and migration-based versioning to ensure data integrity.',
+          },
+          {
+            title: 'Full SDLC involvement',
+            text: 'across requirements analysis, design, development, testing, deployment, and maintenance for enterprise SaaS products.',
           },
           {
             title: 'Developed dynamic UIs',
@@ -110,12 +123,12 @@ export const content: Record<Lang, ResumeContent> = {
     educationHeading: 'Academic Background',
     education: [
       {
-        institution: 'University of Franca (Unifran)',
+        institution: 'Unifran',
         degree: 'Bachelor of Computer Science',
         period: '2023 – 2028',
       },
       {
-        institution: 'Pontifical Catholic University of Minas Gerais (PUC Minas)',
+        institution: 'PUC Minas',
         period: '2019 – 2022',
         focus: 'Focus: Algorithms, Data Structures, and Software Engineering.',
       },
@@ -156,17 +169,25 @@ export const content: Record<Lang, ResumeContent> = {
     experienceHeading: 'Experiência Profissional',
     experience: [
       {
-        role: 'Desenvolvedor Web Full Stack',
-        company: 'Avs LTDA (antiga Viana & CIA)',
+        company: 'Grupo SOITIC',
         period: '2021 – Presente',
+        roles: [
+          { title: 'Estagiário de Programação', period: 'ago 2021 – set 2021' },
+          { title: 'Desenvolvedor Fullstack Júnior', period: 'set 2021 – jan 2023' },
+          { title: 'Desenvolvedor Fullstack Pleno', period: 'jan 2023 – Presente' },
+        ],
         highlights: [
           {
             title: 'Integrante da equipe de desenvolvimento',
             text: 'responsável por diversas soluções SaaS corporativas, com foco na transição de sistemas legados para stacks modernas em .NET/Vue.js.',
           },
           {
-            title: 'Desenvolvimento de Web APIs robustas',
+            title: 'Desenvolvimento de Web APIs RESTful robustas',
             text: 'utilizando .NET, implementando Entity Framework para modelagem de dados complexos e versionamento baseado em migrations para garantir a integridade dos dados.',
+          },
+          {
+            title: 'Atuação em todo o ciclo de vida de desenvolvimento (SDLC)',
+            text: 'abrangendo análise de requisitos, design, desenvolvimento, testes, implantação e manutenção de produtos SaaS corporativos.',
           },
           {
             title: 'Desenvolvimento de interfaces (UIs) dinâmicas',
@@ -190,12 +211,12 @@ export const content: Record<Lang, ResumeContent> = {
     educationHeading: 'Formação Acadêmica',
     education: [
       {
-        institution: 'Universidade de Franca (Unifran)',
+        institution: 'Unifran',
         degree: 'Bacharelado em Ciência da Computação',
         period: '2023 – 2028',
       },
       {
-        institution: 'Pontifícia Universidade Católica de Minas Gerais (PUC Minas)',
+        institution: 'PUC Minas',
         period: '2019 – 2022',
         focus: 'Foco: Algoritmos, Estruturas de Dados e Engenharia de Software.',
       },

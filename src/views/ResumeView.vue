@@ -183,26 +183,28 @@ watchEffect(() => {
                 class="appear"
                 style="animation-delay: 340ms"
               >
-                <article
-                  v-for="edu in t.education"
-                  :key="edu.institution"
-                  class="rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition-shadow hover:shadow-md sm:p-6 dark:border-slate-700 dark:bg-slate-900"
-                >
-                  <h3 class="font-mono text-base font-bold text-blue-700 sm:text-lg dark:text-sky-400">
-                    {{ edu.institution }}
-                  </h3>
-                  <span
-                    class="mt-1.5 inline-block rounded-full bg-emerald-50 px-3 py-0.5 font-mono text-xs font-medium text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400"
+                <div class="space-y-4">
+                  <article
+                    v-for="edu in t.education"
+                    :key="edu.institution"
+                    class="rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition-shadow hover:shadow-md sm:p-6 dark:border-slate-700 dark:bg-slate-900"
                   >
-                    {{ edu.period }}
-                  </span>
-                  <p v-if="edu.degree" class="mt-2 text-sm font-semibold text-slate-800 dark:text-slate-100">
-                    {{ edu.degree }}
-                  </p>
-                  <p v-if="edu.focus" class="mt-1 text-sm italic text-slate-500 dark:text-slate-400">
-                    {{ edu.focus }}
-                  </p>
-                </article>
+                    <h3 class="font-mono text-base font-bold text-blue-700 sm:text-lg dark:text-sky-400">
+                      {{ edu.institution }}
+                    </h3>
+                    <span
+                      class="mt-1.5 inline-block rounded-full bg-emerald-50 px-3 py-0.5 font-mono text-xs font-medium text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400"
+                    >
+                      {{ edu.period }}
+                    </span>
+                    <p v-if="edu.degree" class="mt-2 text-sm font-semibold text-slate-800 dark:text-slate-100">
+                      {{ edu.degree }}
+                    </p>
+                    <p v-if="edu.focus" class="mt-1 text-sm italic text-slate-500 dark:text-slate-400">
+                      {{ edu.focus }}
+                    </p>
+                  </article>
+                </div>
               </CollapsibleSection>
             </div>
           </div>
