@@ -25,10 +25,22 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
-      # SPA fallback: GitHub Pages is static hosting, so a direct visit to
-      # /resume/pt or /resume/en has no matching file. Serving a copy of
-      # index.html as 404.html lets vue-router pick up the route client-side.
-      - run: cp dist/index.html dist/404.html
+      # GitHub Pages is static hosting, so the SPA routes /resume/en and
+      # /resume/pt have no matching file. The 404.html fallback below lets
+      # vue-router recover them client-side, BUT it is served with an HTTP 404
+      # status — and LinkedIn's crawler honours that status and refuses to
+      # render a link preview (Discord/WhatsApp/Facebook parse the body
+      # regardless, which is why those work). So we also materialise real
+      # 200-status files at those routes, each with its own canonical og:url
+      # (LinkedIn deduplicates previews by og:url).
+      - name: Generate per-language pages and SPA fallback
+        run: |
+          for lang in en pt; do
+            mkdir -p "dist/$lang"
+            sed "s#content=\"https://pedrodelarisso.github.io/resume/\"#content=\"https://pedrodelarisso.github.io/resume/$lang/\"#" \
+              dist/index.html > "dist/$lang/index.html"
+          done
+          cp dist/index.html dist/404.html
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
