@@ -14,6 +14,23 @@ const triggerEl = ref<HTMLElement | null>(null)
 const visible = ref(false)
 const coords = reactive({ top: 0, left: 0 })
 
+// Right edge of the nearest ancestor that horizontally clips its content, or
+// Infinity if none. Lets a clipped trigger (e.g. a button in the collapsed
+// sidebar, which stays full width but is visually cut off by an overflow-hidden
+// wrapper) anchor its tooltip to the visible edge instead of its real, hidden one.
+function clippingRight(el: HTMLElement): number {
+  let node: HTMLElement | null = el.parentElement
+  let right = Infinity
+  while (node) {
+    const overflowX = getComputedStyle(node).overflowX
+    if (overflowX !== 'visible') {
+      right = Math.min(right, node.getBoundingClientRect().right)
+    }
+    node = node.parentElement
+  }
+  return right
+}
+
 function updatePosition() {
   const el = triggerEl.value
   if (!el) return
@@ -27,7 +44,7 @@ function updatePosition() {
     coords.left = rect.left + rect.width / 2
   } else {
     coords.top = rect.top + rect.height / 2
-    coords.left = rect.right + gap
+    coords.left = Math.min(rect.right, clippingRight(el)) + gap
   }
 }
 
