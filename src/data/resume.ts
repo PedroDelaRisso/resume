@@ -45,6 +45,7 @@ export const profile = {
   email: 'p.delavechia.r@gmail.com',
   linkedin: 'https://www.linkedin.com/in/pedro-delavechia-risso-431369225',
   github: 'https://github.com/PedroDelaRisso',
+  repo: 'https://github.com/PedroDelaRisso/resume',
 }
 
 export const content: Record<Lang, ResumeContent> = {
