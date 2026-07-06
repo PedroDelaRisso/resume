@@ -73,7 +73,7 @@ export const content: Record<Lang, ResumeContent> = {
     skills: [
       {
         label: 'Backend',
-        items: ['.NET (Web API)', 'ASP.NET Core', 'C#', 'Entity Framework', 'LINQ', 'EF Migrations', 'Identity', 'JWT / Authentication', 'REST APIs', 'Service Integration', 'SQL Server'],
+        items: ['.NET (Web API)', 'ASP.NET Core', 'C#', 'Entity Framework', 'LINQ', 'EF Migrations', 'Identity', 'JWT / Authentication', 'REST APIs', 'Service Integration', 'SQL Server', 'Unit Testing (xUnit)'],
       },
       {
         label: 'Frontend',
@@ -171,7 +171,7 @@ export const content: Record<Lang, ResumeContent> = {
     skills: [
       {
         label: 'Backend',
-        items: ['.NET (Web API)', 'ASP.NET Core', 'C#', 'Entity Framework', 'LINQ', 'EF Migrations', 'Identity', 'JWT / Autenticação', 'REST APIs', 'Integração entre Serviços', 'SQL Server'],
+        items: ['.NET (Web API)', 'ASP.NET Core', 'C#', 'Entity Framework', 'LINQ', 'EF Migrations', 'Identity', 'JWT / Autenticação', 'REST APIs', 'Integração entre Serviços', 'SQL Server', 'Testes Unitários (xUnit)'],
       },
       {
         label: 'Frontend',
