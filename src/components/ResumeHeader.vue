@@ -35,7 +35,7 @@ async function copyPhone() {
     <!-- controls -->
     <div class="no-print mb-8 flex items-center justify-end gap-2">
       <div
-        class="flex overflow-hidden rounded-lg border border-slate-200 text-sm font-medium dark:border-slate-700"
+        class="flex overflow-hidden rounded-lg border border-border text-sm font-medium"
         role="group"
         aria-label="Language"
       >
@@ -44,8 +44,8 @@ async function copyPhone() {
             class="px-3 py-1.5 font-mono uppercase transition-colors"
             :class="
               props.lang === l
-                ? 'bg-gradient-to-r from-teal-600 to-emerald-500 text-white dark:from-teal-400 dark:to-cyan-300 dark:text-slate-950'
-                : 'bg-white text-slate-500 hover:bg-slate-100 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800'
+                ? 'bg-gradient-to-r from-accent-from to-accent-to text-white dark:text-slate-950'
+                : 'bg-surface text-muted hover:bg-surface-hover'
             "
             @click="emit('update:lang', l)"
           >
@@ -56,7 +56,7 @@ async function copyPhone() {
 
       <Tooltip :text="props.dark ? content.labels.switchToLight : content.labels.switchToDark" position="bottom">
         <button
-          class="flex size-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-sm text-slate-500 transition-colors hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800"
+          class="btn-icon"
           :aria-label="props.dark ? 'Light mode' : 'Dark mode'"
           @click="emit('update:dark', !props.dark)"
         >
@@ -69,7 +69,7 @@ async function copyPhone() {
           :href="profile.repo"
           target="_blank"
           rel="noopener noreferrer"
-          class="flex size-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-sm text-slate-500 transition-colors hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-400 dark:hover:bg-slate-800"
+          class="btn-icon"
           :aria-label="content.labels.viewRepo"
         >
           <svg class="size-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
@@ -80,18 +80,18 @@ async function copyPhone() {
     </div>
 
     <!-- identity -->
-    <p class="font-mono text-sm text-teal-600 dark:text-teal-400">$ whoami</p>
-    <h1 class="mt-1 font-mono text-3xl font-bold text-slate-900 sm:text-4xl dark:text-white">
+    <p class="font-mono text-sm text-accent">$ whoami</p>
+    <h1 class="mt-1 font-mono text-3xl font-bold text-heading sm:text-4xl">
       {{ profile.name }}
     </h1>
     <Transition name="fade" mode="out-in">
-      <p :key="props.lang" class="mt-2 text-lg font-medium text-slate-600 dark:text-slate-300">
+      <p :key="props.lang" class="mt-2 text-lg font-medium text-fg">
         {{ content.title }}
       </p>
     </Transition>
 
     <!-- contact info: phone, WhatsApp, and email -->
-    <div class="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-slate-500 dark:text-slate-400">
+    <div class="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted">
       <span class="inline-flex items-center gap-3">
         <Tooltip text="WhatsApp">
           <a
@@ -109,7 +109,7 @@ async function copyPhone() {
         <Tooltip :text="content.labels.call">
           <a
             :href="`tel:${profile.phone.replace(/[^+\d]/g, '')}`"
-            class="inline-flex items-center gap-1.5 transition-colors hover:text-teal-600 dark:hover:text-teal-400"
+            class="inline-flex items-center gap-1.5 transition-colors hover:text-accent"
           >
             <svg class="size-3.5 fill-current" viewBox="0 0 512 512" aria-hidden="true">
               <path d="M160.2 25C152.3 6.1 131.7-3.9 112.1 1.4l-5.5 1.5c-64.6 17.6-119.8 80.2-103.7 156.4 37.1 175 174.8 312.7 349.8 349.8 76.3 16.2 138.8-39.1 156.4-103.7l1.5-5.5c5.4-19.7-4.7-40.3-23.5-48.1l-97.3-40.5c-16.5-6.9-35.6-2.1-47 11.8l-38.6 47.2C233.9 335.4 177.3 277 144.8 205.3L189 169.3c13.9-11.3 18.6-30.4 11.8-47L160.2 25z"/>
@@ -118,7 +118,7 @@ async function copyPhone() {
           </a>
         </Tooltip>
         <button
-          class="no-print rounded-md border border-slate-200 px-2 py-0.5 text-xs font-medium transition-colors hover:border-teal-400 hover:text-teal-600 dark:border-slate-700 dark:hover:border-teal-500 dark:hover:text-teal-400"
+          class="no-print rounded-md border border-border px-2 py-0.5 text-xs font-medium transition-colors hover:border-accent hover:text-accent"
           @click="copyPhone"
         >
           {{ copiedPhone ? content.labels.copied : content.labels.copyPhone }}
@@ -129,7 +129,7 @@ async function copyPhone() {
         <Tooltip :text="content.labels.sendEmail">
           <a
             :href="`mailto:${profile.email}`"
-            class="inline-flex items-center gap-1.5 transition-colors hover:text-teal-600 dark:hover:text-teal-400"
+            class="inline-flex items-center gap-1.5 transition-colors hover:text-accent"
           >
             <svg class="size-3.5 fill-current" viewBox="0 0 512 512" aria-hidden="true">
               <path d="M48 64c-26.5 0-48 21.5-48 48 0 15.1 7.1 29.3 19.2 38.4l208 156c17.1 12.8 40.5 12.8 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48L48 64zM0 196L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-188-198.4 148.8c-34.1 25.6-81.1 25.6-115.2 0L0 196z"/>
@@ -138,7 +138,7 @@ async function copyPhone() {
           </a>
         </Tooltip>
         <button
-          class="no-print rounded-md border border-slate-200 px-2 py-0.5 text-xs font-medium transition-colors hover:border-teal-400 hover:text-teal-600 dark:border-slate-700 dark:hover:border-teal-500 dark:hover:text-teal-400"
+          class="no-print rounded-md border border-border px-2 py-0.5 text-xs font-medium transition-colors hover:border-accent hover:text-accent"
           @click="copyEmail"
         >
           {{ copiedEmail ? content.labels.copied : content.labels.copyEmail }}
@@ -147,7 +147,7 @@ async function copyPhone() {
     </div>
 
     <!-- profile links -->
-    <div class="mt-2.5 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-slate-500 dark:text-slate-400">
+    <div class="mt-2.5 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted">
       <a
         :href="profile.linkedin"
         target="_blank"
@@ -164,10 +164,10 @@ async function copyPhone() {
         :href="profile.github"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-1.5 transition-colors hover:text-slate-900 dark:hover:text-white"
+        class="inline-flex items-center gap-1.5 transition-colors hover:text-heading"
         aria-label="GitHub"
       >
-        <svg class="size-4 fill-current text-slate-700 dark:text-slate-300" viewBox="0 0 24 24" aria-hidden="true">
+        <svg class="size-4 fill-current text-fg" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
         </svg>
         GitHub

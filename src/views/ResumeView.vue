@@ -94,7 +94,7 @@ watchEffect(() => {
 </script>
 
 <template>
-  <div class="relative min-h-screen bg-slate-50 text-slate-700 transition-colors dark:bg-slate-950 dark:text-slate-300">
+  <div class="relative min-h-screen bg-page text-fg transition-colors">
     <CodeBackground />
 
     <div class="relative z-10 mx-auto flex max-w-5xl gap-8 px-4 py-8 sm:px-6 sm:py-12">
@@ -109,7 +109,7 @@ watchEffect(() => {
               <Tooltip :text="sidebarCollapsed ? t.labels.expandSidebar : t.labels.collapseSidebar" position="right">
                 <button
                   type="button"
-                  class="mb-3 flex items-center justify-center rounded-lg border border-slate-200 bg-white p-1.5 text-slate-400 transition-colors hover:text-teal-600 dark:border-slate-700 dark:bg-slate-900 dark:hover:text-teal-400"
+                  class="mb-3 flex items-center justify-center rounded-lg border border-border bg-surface p-1.5 text-faint transition-colors hover:text-accent"
                   :aria-label="sidebarCollapsed ? t.labels.expandSidebar : t.labels.collapseSidebar"
                   :aria-expanded="!sidebarCollapsed"
                   @click="sidebarCollapsed = !sidebarCollapsed"
@@ -173,7 +173,7 @@ watchEffect(() => {
                 class="appear"
                 style="animation-delay: 160ms"
               >
-                <p class="leading-relaxed text-slate-600 dark:text-slate-300">
+                <p class="leading-relaxed text-fg">
                   {{ t.summary }}
                 </p>
               </CollapsibleSection>
@@ -214,27 +214,19 @@ watchEffect(() => {
                 style="animation-delay: 340ms"
               >
                 <div class="space-y-4">
-                  <article
-                    v-for="edu in t.education"
-                    :key="edu.institution"
-                    class="rounded-xl border border-slate-200 bg-white/70 p-5 shadow-sm backdrop-blur-sm transition-shadow hover:shadow-md sm:p-6 dark:border-slate-700 dark:bg-slate-900/60"
-                  >
+                  <article v-for="edu in t.education" :key="edu.institution" class="card p-5 hover:shadow-md sm:p-6">
                     <div class="flex items-start justify-between gap-3">
-                      <h3
-                        class="min-w-0 bg-gradient-to-r from-teal-700 to-emerald-500 bg-clip-text font-mono text-base font-bold text-transparent sm:text-lg dark:from-teal-400 dark:to-cyan-300"
-                      >
+                      <h3 class="text-gradient min-w-0 text-base sm:text-lg">
                         {{ edu.institution }}
                       </h3>
-                      <span
-                        class="shrink-0 rounded-full bg-blue-50 px-3 py-0.5 font-mono text-xs font-medium text-blue-800 dark:bg-blue-950 dark:text-blue-300"
-                      >
+                      <span class="badge">
                         {{ edu.period }}
                       </span>
                     </div>
-                    <p v-if="edu.degree" class="mt-2 text-sm font-semibold text-slate-800 dark:text-slate-100">
+                    <p v-if="edu.degree" class="mt-2 text-sm font-semibold text-strong">
                       {{ edu.degree }}
                     </p>
-                    <p v-if="edu.focus" class="mt-1 text-sm italic text-slate-500 dark:text-slate-400">
+                    <p v-if="edu.focus" class="mt-1 text-sm italic text-muted">
                       {{ edu.focus }}
                     </p>
                   </article>
@@ -245,7 +237,7 @@ watchEffect(() => {
         </div>
 
         <footer
-          class="no-print mt-8 text-center font-mono text-xs text-slate-400 dark:text-slate-600 appear"
+          class="no-print mt-8 text-center font-mono text-xs text-faint appear"
           style="animation-delay: 400ms"
         >
           Vue 3 · TypeScript · Tailwind CSS

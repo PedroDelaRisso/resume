@@ -19,12 +19,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: denoland/setup-deno@v2
         with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
-      - run: npm run build
+          deno-version: v2.x
+      - run: deno install
+      - run: deno task build
       # GitHub Pages is static hosting, so the SPA routes /resume/en and
       # /resume/pt have no matching file. The 404.html fallback below lets
       # vue-router recover them client-side, BUT it is served with an HTTP 404

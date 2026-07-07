@@ -26,15 +26,13 @@ function toggle() {
         :aria-controls="`${id}-panel`"
         @click="toggle"
       >
-        <span class="font-mono text-xl font-bold text-slate-400 dark:text-slate-600" aria-hidden="true">#</span>
-        <h2
-          class="bg-gradient-to-r from-teal-700 to-emerald-500 bg-clip-text font-mono text-xl font-bold text-transparent dark:from-teal-400 dark:to-cyan-300"
-        >
+        <span class="font-mono text-xl font-bold text-faint" aria-hidden="true">#</span>
+        <h2 class="text-gradient text-xl">
           {{ title }}
         </h2>
-        <span class="h-px flex-1 bg-slate-200 transition-colors group-hover:bg-teal-300 dark:bg-slate-700 dark:group-hover:bg-teal-700" aria-hidden="true" />
+        <span class="h-px flex-1 bg-border transition-colors group-hover:bg-accent" aria-hidden="true" />
         <svg
-          class="size-5 shrink-0 text-slate-400 transition-transform duration-300 group-hover:text-teal-600 dark:group-hover:text-teal-400"
+          class="size-5 shrink-0 text-faint transition-transform duration-300 group-hover:text-accent"
           :class="open ? 'rotate-0' : '-rotate-90'"
           viewBox="0 0 24 24"
           fill="none"

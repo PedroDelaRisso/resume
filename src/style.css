@@ -2,9 +2,90 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-@theme {
+/* ── design tokens: single source of truth, values flip under .dark ── */
+:root {
+  color-scheme: light;
+  --page: #f8fafc; /* slate-50 */
+  --surface: #ffffff; /* white */
+  --surface-hover: #f1f5f9; /* slate-100 */
+  --border: #e2e8f0; /* slate-200 */
+  --fg: #334155; /* slate-700 */
+  --heading: #0f172a; /* slate-900 */
+  --strong: #1e293b; /* slate-800 */
+  --muted: #64748b; /* slate-500 */
+  --faint: #94a3b8; /* slate-400 */
+  --accent: #0d9488; /* teal-600 */
+  --accent-from: #0f766e; /* teal-700 */
+  --accent-to: #10b981; /* emerald-500 */
+  --badge-bg: #eff6ff; /* blue-50 */
+  --badge-fg: #1e40af; /* blue-800 */
+  --chip-bg: #f0fdfa; /* teal-50 */
+  --chip-hover: #ccfbf1; /* teal-100 */
+  --chip-fg: #115e59; /* teal-800 */
+}
+
+.dark {
+  color-scheme: dark;
+  --page: #020617; /* slate-950 */
+  --surface: #0f172a; /* slate-900 */
+  --surface-hover: #1e293b; /* slate-800 */
+  --border: #334155; /* slate-700 */
+  --fg: #cbd5e1; /* slate-300 */
+  --heading: #ffffff; /* white */
+  --strong: #f1f5f9; /* slate-100 */
+  --muted: #94a3b8; /* slate-400 */
+  --faint: #475569; /* slate-600 */
+  --accent: #2dd4bf; /* teal-400 */
+  --accent-from: #2dd4bf; /* teal-400 */
+  --accent-to: #67e8f9; /* cyan-300 */
+  --badge-bg: #172554; /* blue-950 */
+  --badge-fg: #93c5fd; /* blue-300 */
+  --chip-bg: #1e293b; /* slate-800 */
+  --chip-hover: #334155; /* slate-700 */
+  --chip-fg: #5eead4; /* teal-300 */
+}
+
+@theme inline {
   --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Code", "Fira Code",
     Menlo, Consolas, monospace;
+  --color-page: var(--page);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-border: var(--border);
+  --color-fg: var(--fg);
+  --color-heading: var(--heading);
+  --color-strong: var(--strong);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-accent: var(--accent);
+  --color-accent-from: var(--accent-from);
+  --color-accent-to: var(--accent-to);
+  --color-badge-bg: var(--badge-bg);
+  --color-badge-fg: var(--badge-fg);
+  --color-chip-bg: var(--chip-bg);
+  --color-chip-hover: var(--chip-hover);
+  --color-chip-fg: var(--chip-fg);
+}
+
+/* ── reusable component classes (used across the app + boilerplate) ── */
+@utility card {
+  @apply rounded-xl border border-border bg-surface/70 shadow-sm backdrop-blur-sm transition-shadow;
+}
+
+@utility badge {
+  @apply shrink-0 rounded-full bg-badge-bg px-3 py-0.5 font-mono text-xs font-medium text-badge-fg;
+}
+
+@utility chip {
+  @apply rounded-md bg-chip-bg px-2 py-1 text-xs font-medium text-chip-fg transition-colors hover:bg-chip-hover;
+}
+
+@utility btn-icon {
+  @apply flex size-9 items-center justify-center rounded-lg border border-border bg-surface text-sm text-muted transition-colors hover:bg-surface-hover;
+}
+
+@utility text-gradient {
+  @apply bg-gradient-to-r from-accent-from to-accent-to bg-clip-text font-mono font-bold text-transparent;
 }
 
 html {

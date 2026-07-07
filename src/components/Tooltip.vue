@@ -82,7 +82,7 @@ const tooltipStyle = computed(() => {
       <span
         v-if="visible"
         role="tooltip"
-        class="no-print pointer-events-none fixed z-[100] whitespace-nowrap rounded-md border border-teal-500/30 bg-slate-900 px-2 py-1 font-mono text-[11px] font-medium text-slate-100 shadow-lg dark:border-teal-400/30 dark:bg-slate-800"
+        class="no-print pointer-events-none fixed z-[100] whitespace-nowrap rounded-md border border-accent/30 bg-slate-900 px-2 py-1 font-mono text-[11px] font-medium text-slate-100 shadow-lg dark:bg-slate-800"
         :style="tooltipStyle"
       >
         {{ text }}

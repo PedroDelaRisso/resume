@@ -31,7 +31,7 @@ function pad(i: number) {
           v-if="collapsed"
           key="collapsed-icon"
           type="button"
-          class="flex items-center justify-center text-slate-400 transition-colors hover:text-teal-600 dark:hover:text-teal-400"
+          class="flex items-center justify-center text-faint transition-colors hover:text-accent"
           :aria-label="expandSidebarLabel"
           @click="emit('toggle-collapse')"
         >
@@ -42,12 +42,12 @@ function pad(i: number) {
           </svg>
         </button>
         <div v-else key="label" class="flex w-full items-center justify-between">
-          <p class="font-mono text-xs font-bold tracking-wider text-slate-400 uppercase dark:text-slate-500">
+          <p class="font-mono text-xs font-bold tracking-wider text-faint uppercase">
             {{ contentsLabel }}
           </p>
           <button
             type="button"
-            class="font-mono text-[10px] text-slate-400 transition-colors hover:text-teal-600 dark:text-slate-500 dark:hover:text-teal-400"
+            class="font-mono text-[10px] text-faint transition-colors hover:text-accent"
             @click="emit('toggleAll')"
           >
             {{ toggleAllLabel }}
@@ -55,7 +55,7 @@ function pad(i: number) {
         </div>
       </Transition>
     </div>
-    <ul class="space-y-0.5 border-l border-slate-200 dark:border-slate-800">
+    <ul class="space-y-0.5 border-l border-border">
       <li v-for="(s, i) in sections" :key="s.id">
         <Tooltip :text="s.label" position="right">
           <button
@@ -63,16 +63,16 @@ function pad(i: number) {
             class="group -ml-px flex w-full items-center gap-2 border-l-2 py-1.5 pl-3 text-left text-sm transition-colors"
             :class="
               activeId === s.id
-                ? 'border-teal-600 font-medium text-teal-700 dark:border-teal-400 dark:text-teal-400'
-                : 'border-transparent text-slate-500 hover:border-slate-300 hover:text-slate-800 dark:text-slate-400 dark:hover:border-slate-600 dark:hover:text-slate-200'
+                ? 'border-accent font-medium text-accent'
+                : 'border-transparent text-muted hover:border-faint hover:text-strong'
             "
             @click="emit('navigate', s.id)"
           >
-            <span class="font-mono text-xs text-slate-400 dark:text-slate-600">{{ pad(i) }}</span>
+            <span class="font-mono text-xs text-faint">{{ pad(i) }}</span>
             <span class="truncate">{{ s.label }}</span>
             <span
               v-if="!open[s.id]"
-              class="ml-auto font-mono text-[10px] text-slate-300 dark:text-slate-600"
+              class="ml-auto font-mono text-[10px] text-faint"
               aria-hidden="true"
             >+</span>
           </button>
