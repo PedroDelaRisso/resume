@@ -100,24 +100,16 @@ export const content: Record<Lang, ResumeContent> = {
         ],
         highlights: [
           {
-            title: 'Development team',
-            text: 'responsible for diverse enterprise-level SaaS solutions, focusing on the transition from legacy systems to modern .NET/Vue.js stacks.',
+            title: "Responsible for MetraCloud's development and maintenance",
+            text: 'with a strong focus on modularity, enabling the reuse of code and components that simplifies the development team\'s work.',
           },
           {
-            title: 'Engineered robust RESTful Web APIs',
+            title: 'Engineered robust Web APIs',
             text: 'using .NET, implementing Entity Framework for complex data modeling and migration-based versioning to ensure data integrity.',
-          },
-          {
-            title: 'Full SDLC involvement',
-            text: 'across requirements analysis, design, development, testing, deployment, and maintenance for enterprise SaaS products.',
           },
           {
             title: 'Developed dynamic UIs',
             text: 'using Vue 2 with Vuex and Vue 3 (Composition API) with Pinia.',
-          },
-          {
-            title: 'CI/CD pipelines',
-            text: 'for automated build and deployment workflows.',
           },
           {
             title: 'Implemented Domain-Driven Design (DDD)',
@@ -126,6 +118,10 @@ export const content: Record<Lang, ResumeContent> = {
           {
             title: 'Collaborated in an Agile environment',
             text: 'actively participating in sprints and code reviews to maintain high quality-assurance standards.',
+          },
+          {
+            title: 'Built CI/CD pipelines',
+            text: 'for automated build and deployment workflows across the full software development lifecycle (SDLC).',
           },
         ],
       },
@@ -198,24 +194,16 @@ export const content: Record<Lang, ResumeContent> = {
         ],
         highlights: [
           {
-            title: 'Integrante da equipe de desenvolvimento',
-            text: 'responsável por diversas soluções SaaS corporativas, com foco na transição de sistemas legados para stacks modernas em .NET/Vue.js.',
+            title: 'Responsável pelo desenvolvimento e manutenção do MetraCloud',
+            text: 'com forte foco em modularidade, viabilizando a reutilização de código e componentes que simplifica o trabalho da equipe de desenvolvimento.',
           },
           {
-            title: 'Desenvolvimento de Web APIs RESTful robustas',
+            title: 'Desenvolvimento de Web APIs robustas',
             text: 'utilizando .NET, implementando Entity Framework para modelagem de dados complexos e versionamento baseado em migrations para garantir a integridade dos dados.',
-          },
-          {
-            title: 'Atuação em todo o ciclo de vida de desenvolvimento (SDLC)',
-            text: 'abrangendo análise de requisitos, design, desenvolvimento, testes, implantação e manutenção de produtos SaaS corporativos.',
           },
           {
             title: 'Desenvolvimento de interfaces (UIs) dinâmicas',
             text: 'utilizando Vue 2 com Vuex e Vue 3 (Composition API) com Pinia.',
-          },
-          {
-            title: 'Pipelines CI/CD',
-            text: 'para automação de build e deploy.',
           },
           {
             title: 'Implementação de princípios de Domain-Driven Design (DDD)',
@@ -224,6 +212,10 @@ export const content: Record<Lang, ResumeContent> = {
           {
             title: 'Colaboração em ambiente Ágil',
             text: 'participando ativamente de sprints e revisões de código (code reviews) para manter altos padrões de garantia de qualidade.',
+          },
+          {
+            title: 'Construção de pipelines CI/CD',
+            text: 'para automação de build e deploy em todo o ciclo de vida de desenvolvimento de software (SDLC).',
           },
         ],
       },
