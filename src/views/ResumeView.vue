@@ -240,7 +240,7 @@ watchEffect(() => {
           class="no-print mt-8 text-center font-mono text-xs text-faint appear"
           style="animation-delay: 400ms"
         >
-          Vue 3 · TypeScript · Tailwind CSS
+          Vue 3 · TypeScript · Tailwind CSS· Deno
         </footer>
       </main>
     </div>
